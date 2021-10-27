@@ -68,8 +68,8 @@ class Board:
         self.board[col][row] = value
 
     def get(self, col, row):
-        if not self.isInBounds(col, row)
-        return self.board[conv(col)][row - 1]
+        if not self.isInBounds(col, row):
+            return self.board[conv(col)][row - 1]
 
     def isInBounds(self, col, row):
         return col < NUM_COLUMNS and col >= 0 and row < NUM_ROWS and row >= 0
@@ -104,4 +104,4 @@ class Board:
 
                 if board[col][row] is EMPTY:
                     legalMoves.append((col, row))
-                else if board[col]
+                #else if board[col]
