@@ -4,4 +4,5 @@ from board import Board
 
 board = Board()
 
+#print the board
 board.printBoard()
