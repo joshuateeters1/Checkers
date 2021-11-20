@@ -55,3 +55,31 @@ feet_entry.focus()
 root.bind("<Return>", calculate)
 
 root.mainloop()
+
+
+# example button
+# button = ttk.Button(root, text="Hello", command="buttonpressed")
+
+# get the 'text' option value
+# print(button['text'])
+
+# set the 'text' option value
+# button.configure(text='goodbye')
+
+# get all information on the 'text' option
+# returns ('text', 'text', 'Text', '', 'goodbye')
+#  first is the options name, fourth is default value, fifth is current value.
+# print(button.configure('text'))
+
+# get all information on all options for this widget
+# print(button.configure())
+
+
+# use winfo to get more info about a widget (pass in widget w)
+def print_hierarchy(w, depth=0):
+    print('  '*depth + w.winfo_class() + ' w=' + str(w.winfo_width()) + ' h=' + str(w.winfo_height()) + ' x=' + str(w.winfo_x()) + ' y=' + str(w.winfo_y()))
+    for i in w.winfo_children():
+        print_hierarchy(i, depth+1)
+# useful: winfo_...
+#  class, children/parent, toplevel, width/height, reqwidth/reqheight,
+#  x/y, rootx/rooty, viewable
