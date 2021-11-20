@@ -35,3 +35,9 @@ root.mainloop()
 # <Leave>           - mouse pointer leaves widget
 
 # modifiers include Double, Triple, B1 or Button1 = mouse being held down, Control, Shift, Alt, Option, Command...
+
+
+# virtual events are higher level events in angle brackets <<>>, avoids platform specific bindings
+#  e.g. <<ListboxSelect>> is generated when a listbox widget item gets clicked
+#  e.g. <<Cut>>, <<Copy>>, <<Paste>>
+#  you can define your own e.g. root.event_generate("<<MyOwnEvent>>")
