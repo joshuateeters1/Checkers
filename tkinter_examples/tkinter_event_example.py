@@ -13,3 +13,25 @@ root.mainloop()
 
 # lambda represents Python's anonymous functions for insta-defining simple actions.
 #  you should almost always use real functions instead of these.
+
+# to capture two keys pressed in a row, <KeyPress-A><KeyPress-B> or simply <ab>.  weird key names found here: https://tcl.tk/man/tcl8.6/TkCmd/keysyms.htm
+# if you set up a binding for a toplevel window, it will trigger when a matching event occours anywhere in that window
+# you can bind to e.g. all buttons
+
+# Avaliable events:
+# <Activate>        - window has become active
+# <Deactivate>      - window has become deactivated
+# <MouseWheel>      - scroll wheel on mouse has been moved
+# <KeyPress>        - key on keyboard has been pressed down
+# <KeyRelease>      - key has been released
+# <ButtonPress>     - a mouse button has been pressed
+# <ButtonRelease>   - a mouse button has been released
+# <Motion>          - mouse has been moved
+# <Configure>       - widget has changed size or position
+# <Destroy>         - widget is being destroyed
+# <FocusIn>         - widget has been given keyboard focus
+# <FocusOut>        - widget has lost keboard focus
+# <Enter>           - mouse pointer enters widget
+# <Leave>           - mouse pointer leaves widget
+
+# modifiers include Double, Triple, B1 or Button1 = mouse being held down, Control, Shift, Alt, Option, Command...
