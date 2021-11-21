@@ -41,3 +41,9 @@ root.mainloop()
 #  e.g. <<ListboxSelect>> is generated when a listbox widget item gets clicked
 #  e.g. <<Cut>>, <<Copy>>, <<Paste>>
 #  you can define your own e.g. root.event_generate("<<MyOwnEvent>>")
+
+
+
+# example of binding <Return> globally to the button defined as default
+action = ttk.Button(root, text="Action", default="active", command=myaction)
+root.bind('<Return>', lambda e: action.invoke())

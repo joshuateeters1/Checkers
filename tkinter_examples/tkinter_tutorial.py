@@ -83,3 +83,88 @@ def print_hierarchy(w, depth=0):
 # useful: winfo_...
 #  class, children/parent, toplevel, width/height, reqwidth/reqheight,
 #  x/y, rootx/rooty, viewable
+
+
+
+
+# widget examples
+#  frame
+#    displays a simple rectangle
+#    frame = ttk.Frame(parent)
+#      requested size, padding, borders, styles
+#  label
+#    displays text of images, typically not for interaction
+#    label = ttk.Label(parent, {text='hello' || textvariable = var})
+#      text, textvariable, image, compound, style (preferred), font, foreground, background, relief, anchor, justify
+#  button
+#    normal rectangle button
+#    button = ttk.Button(parent, text='hello', command=functionName)
+#      style, text, textvariable, image, compound, default, command
+#      state, instate
+#  checkbutton
+#    toggleable button, like a checkbox.  when clicked, checks button and invokes callback.
+#    textToChange = StringVar(value=0)  #this defaults the checkbox to "off"
+#    check = ttk.Checkbutton(parent, text='On or Off?', command=callbackFunctionName, variable=textToChange, onvalue='checked!', offvalue='unchecked!')
+#      text, textvariable, image, compound, command, variable, onvalue, offvalue
+#      invoke, state, instate
+#  radiobutton
+#    toggleable options, can only choose one option at a time
+#    choice = StringVar()
+#    choice1 = ttk.Radiobutton(parent, text='Choice 1', variable=choice, value='choice1')
+#    choice2 = ttk.Radiobutton(parent, text='Choice 2', variable=choice, value='choice2')
+#    choice3 = ttk.Radiobutton(parent, text='Choice 3', variable=choice, value='choice3')
+#      text, textvariable, image, compound, command, variable, value
+#      state, instate
+#  entry
+#    single-line text field, able to be typed in
+#    username = StringVar()
+#    name = ttk.Entry(parent, textvariable=username)
+#      textvariable, width, validate, validatecommand
+#      get, set, delete, insert, StringVar().trace_add, state, instate
+#  combobox
+#    entry with a list of choices, a dropdown.  Can also type in own value in uncommon cases.
+#    countryvar = StringVar()
+#    country = ttk.Combobox(parent, textvariable=countryvar)
+#    country.bind('<<ComboboxSelected>>', function)
+#      textvariable, values
+#      state, instate, get, set, current
+
+
+# configuration options
+#  requested size: x[width] = 350; x[height] = 350m/350c/350m/350i/350p
+#  padding: x['padding'] = (left, top, right, bottom)
+#  borders: x['borderwidth'] = 2; x['releif'] = {'flat', 'raised', 'sunken', 'solid', 'ridge', 'groove'}
+#  styles: you can define styles that combine a bunch of options into one
+#    s = ttk.Style()
+#    s.configure('Danger.TFrame', background='red', borderwidth=5, relief='raised')
+#    x(root, width=200, style='Danger.TFrame').grid()
+#  text: x[text] = 'hello'
+#  textvariable: var = StringVar(); x['textvariable'] = var; var.set('new value')  (var.get() gets value)
+#  image: image = PhotoImage(file='myimage.gif'); x['image'] = image
+#  compound: x[compound] = {none, text (text only), image (image only), center (text in center of image), top (image above text), left, bottom, right}
+#  font: x['font'] = {"TkDefaultFont", "TkTextFont", "TkFixedFont" (fixed-width), "TkMenuFont", "TkHeadingFont", "TkCaptionFont", "TkSmallCaptionFont", etc}
+#  foreground: x['foreground'] = "red" || "#ff340a"
+#  background: x['background'] = "red" || "#ff340a"
+#  anchor: x['anchor'] = {"n", "ne", "e", "se", "s", "sw", "w", "nw", "center"}
+#  justify: x['justify'] = {"left", "center", "right"}
+#  default: x['default'] = {"active", "normal"}  #specifies if button should be pressed when "enter" is hit, draws border, still need event handler for enter
+#  command: x['command'] = nameOfFunction  (no ""s)
+#  variable: x['variable'] = referenceToStringVar  #links to a widget's current value, updated when widget is toggled
+#  onvlue: x['onvalue'] = "customOnValue"  #sets a custom value to set ['variable'] to instead of the default 1 when toggled on
+#  offvlue: x['onvalue'] = "customOffValue"  #sets a custom value to set ['variable'] to instead of the default 0 when toggled off
+#  value: x['value'] = "option1"  #sets the value to set the 'variable' var to when selected
+#  validate: x['validate'] = *see validation for more info*
+#  validatecommand: x['validatecommand'] = *see validation for more info*
+#  values: x['values'] = ('USA', 'Canada', 'Australia')
+
+# functions
+#  state: x.state(['disabled']) #sets state flag to true; x.state(['!disabled']) #sets disabled to false
+#   list of states: 'active', 'disabled', 'focus', 'pressed', 'selected', 'background'. 'readonly', 'alternate', 'invalid'
+#  instate: x.instate(['disabled']) #check if disabled is ture; x.instate(['!disabled'], cmd) #execute 'cmd' if not disabled
+#  invoke: x.invoke() #will call the command specified by ['command']
+#  get: x.get() #gets the value of the widget
+#  set: x.set('hello') #sets the value of the widget
+#  current: x.current() #returns an index of currently selected item
+#  delete: x.delete(0, 'end') #deletes value between two indices
+#  insert: x.insert(0, 'your name') #insert new text at a gicen index
+#  trace_add: StringVar().trace_add("write", functionToCallWhenWritten)  #see trace_remove and trace_info
