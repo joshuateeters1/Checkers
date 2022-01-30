@@ -11,10 +11,15 @@ class visual:
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
 
+    style = ttk.Style()
+    style.configure('T.TLabel', background='tan')
+    style.configure('G.TLabel', background='green')
+
     for r in range(8):
         for c in range(8):
-            t = "tan" if ((r * 7) + c) % 2 == 0 else "green"
-            button = ttk.Button(mainframe, text=t).grid(row=r, column=c)
+            t = 'tan' if ((r * 7) + c) % 2 == 0 else 'green'
+            s = 'T.TLabel' if t == 'tan' else 'G.TLabel'
+            button = ttk.Button(mainframe, text=t, style=s).grid(row=r, column=c)
 
 
     root.mainloop()
