@@ -11,7 +11,10 @@ class visual:
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
 
-    button = ttk.Button(mainframe, text="green").grid(row=1, column=1)
+    for r in range(8):
+        for c in range(8):
+            t = "tan" if ((r * 7) + c) % 2 == 0 else "green"
+            button = ttk.Button(mainframe, text=t).grid(row=r, column=c)
 
 
     root.mainloop()
