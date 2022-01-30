@@ -15,6 +15,8 @@ class visual:
     style.configure('T.TLabel', background='tan')
     style.configure('G.TLabel', background='green')
 
+    image = PhotoImage(file='checkers_pieces/b_piece.png')
+
     for r in range(8):
         for c in range(8):
             s = 'T.TLabel' if ((r * 7) + c) % 2 == 0 else 'G.TLabel'

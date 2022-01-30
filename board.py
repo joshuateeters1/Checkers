@@ -1,9 +1,9 @@
 NUM_ROWS = 8
 NUM_COLUMNS = 8
 RED = 'r'
-WHITE = 'w'
+BLACK = 'b'
 RED_KING = 'R'
-WHITE_KING = 'W'
+BLACK_KING = 'B'
 EMPTY = '-'
 OOB = '.'
 letterToNumber = {'a': 0,'b': 1,'c': 2,'d': 3,'e': 4,'f': 5,'g': 6,'h': 7}
@@ -45,18 +45,18 @@ class Board:
             self.board.append(col)
 
     def setStartingPositions(self):
-        self.setChessNotation('f', 8, WHITE)
-        self.setChessNotation('h', 8, WHITE)
-        self.setChessNotation('b', 8, WHITE)
-        self.setChessNotation('d', 8, WHITE)
-        self.setChessNotation('a', 7, WHITE)
-        self.setChessNotation('c', 7, WHITE)
-        self.setChessNotation('e', 7, WHITE)
-        self.setChessNotation('g', 7, WHITE)
-        self.setChessNotation('b', 6, WHITE)
-        self.setChessNotation('d', 6, WHITE)
-        self.setChessNotation('f', 6, WHITE)
-        self.setChessNotation('h', 6, WHITE)
+        self.setChessNotation('f', 8, BLACK)
+        self.setChessNotation('h', 8, BLACK)
+        self.setChessNotation('b', 8, BLACK)
+        self.setChessNotation('d', 8, BLACK)
+        self.setChessNotation('a', 7, BLACK)
+        self.setChessNotation('c', 7, BLACK)
+        self.setChessNotation('e', 7, BLACK)
+        self.setChessNotation('g', 7, BLACK)
+        self.setChessNotation('b', 6, BLACK)
+        self.setChessNotation('d', 6, BLACK)
+        self.setChessNotation('f', 6, BLACK)
+        self.setChessNotation('h', 6, BLACK)
         self.setChessNotation('a', 3, RED)
         self.setChessNotation('c', 3, RED)
         self.setChessNotation('e', 3, RED)
@@ -109,16 +109,16 @@ class Board:
 
     def getOppositeColor(self, colorToSwap):
         if colorToSwap is RED:
-            return WHITE
-        elif colorToSwap is WHITE:
+            return BLACK
+        elif colorToSwap is BLACK:
             return RED
         else:
             raise ValueError("Bad color swap argument")
 
     def getOppositeColorKing(self, colorToSwap):
         if colorToSwap is RED:
-            return WHITE_KING
-        elif colorToSwap is WHITE:
+            return BLACK_KING
+        elif colorToSwap is BLACK:
             return RED_KING
         else:
             raise ValueError("Bad king color swap argument")
@@ -136,7 +136,7 @@ class Board:
         oppositeColor = self.getOppositeColor(piece)
         oppositeColorKing = self.getOppositeColorKing(piece)
 
-        if piece is RED or piece is RED_KING or piece is WHITE_KING:
+        if piece is RED or piece is RED_KING or piece is BLACK_KING:
             if tl is EMPTY:
                 legalMoves.append((col -1, row +1))
             elif tl is oppositeColor or tl is oppositeColorKing and \
@@ -148,7 +148,7 @@ class Board:
                self.getAdjacent(col +1, row +1, 'tr') is EMPTY:
                 legalMoves.append((col +1 +1, row +1 +1))
 
-        if piece is WHITE or piece is RED_KING or piece is WHITE_KING:
+        if piece is BLACK or piece is RED_KING or piece is BLACK_KING:
             if bl is EMPTY:
                 legalMoves.append((col -1, row -1))
             elif bl is oppositeColor or bl is oppositeColorKing and \
