@@ -20,7 +20,7 @@ class visual:
     for r in range(8):
         for c in range(8):
             s = 'T.TLabel' if ((r * 7) + c) % 2 == 0 else 'G.TLabel'
-            button = ttk.Button(mainframe, text='     ', style=s).grid(row=r, column=c)
+            button = ttk.Button(mainframe, image=image, style=s).grid(row=r, column=c)
 
 
     root.mainloop()
