@@ -3,32 +3,38 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 
 
-class visual:
-    root = Tk()
-    root.title("Checkers")
+class Visual:
+    mainframe = None
+    b_piece = r_piece = b_king = r_king = None
 
-    mainframe = ttk.Frame(root, padding="3 3 12 12")
-    mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
-    root.columnconfigure(0, weight=1)
-    root.rowconfigure(0, weight=1)
+    def __init__(self):
+        root = Tk()
+        root.title("Checkers")
 
-    style = ttk.Style()
-    style.configure('Tan.TLabel', background='tan')
-    style.configure('Green.TLabel', background='green')
+        mainframe = ttk.Frame(root, padding="3 3 12 12")
+        mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+        root.columnconfigure(0, weight=1)
+        root.rowconfigure(0, weight=1)
 
-    b_piece_file = Image.open('checkers_pieces/b_piece.png')
-    b_piece = ImageTk.PhotoImage(b_piece_file.resize((100,100),Image.ANTIALIAS))
-    r_piece_file = Image.open('checkers_pieces/r_piece.png')
-    r_piece = ImageTk.PhotoImage(r_piece_file.resize((100,100),Image.ANTIALIAS))
-    b_king_file = Image.open('checkers_pieces/b_king.png')
-    b_king = ImageTk.PhotoImage(b_king_file.resize((100,100),Image.ANTIALIAS))
-    r_king_file = Image.open('checkers_pieces/r_king.png')
-    r_king = ImageTk.PhotoImage(r_king_file.resize((100,100),Image.ANTIALIAS))
+        style = ttk.Style()
+        style.configure('Tan.TLabel', background='tan')
+        style.configure('Green.TLabel', background='green')
 
-    for r in range(8):
-        for c in range(8):
-            s = 'Tan.TLabel' if ((r * 7) + c) % 2 == 0 else 'Green.TLabel'
-            button = ttk.Button(mainframe, image=b_piece, style=s).grid(row=r, column=c)
+        b_piece_file = Image.open('checkers_pieces/b_piece.png')
+        r_piece_file = Image.open('checkers_pieces/r_piece.png')
+        b_king_file = Image.open('checkers_pieces/b_king.png')
+        r_king_file = Image.open('checkers_pieces/r_king.png')
+        b_piece = ImageTk.PhotoImage(b_piece_file.resize((100,100),Image.ANTIALIAS))
+        r_piece = ImageTk.PhotoImage(r_piece_file.resize((100,100),Image.ANTIALIAS))
+        b_king = ImageTk.PhotoImage(b_king_file.resize((100,100),Image.ANTIALIAS))
+        r_king = ImageTk.PhotoImage(r_king_file.resize((100,100),Image.ANTIALIAS))
 
+        root.mainloop()
 
-    root.mainloop()
+    def updateVisual(self, board):
+        for r in range(8):
+            for c in range(8):
+                s = 'Tan.TLabel' if ((r * 7) + c) % 2 == 0 else 'Green.TLabel'
+                #match piece:
+                    #case
+                button = ttk.Button(self.mainframe, image=self.b_king, style=s).grid(row=r, column=c)

@@ -1,4 +1,3 @@
-
 class Board:
     NUM_ROWS = 8
     NUM_COLUMNS = 8
