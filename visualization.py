@@ -27,9 +27,12 @@ class Visual:
         self.b_king = ImageTk.PhotoImage(b_king_file.resize((100,100),Image.ANTIALIAS))
         self.r_king = ImageTk.PhotoImage(r_king_file.resize((100,100),Image.ANTIALIAS))
 
+        print(self.mainframe)
+
         root.mainloop()
 
     def updateVisual(self, board):
+        print(self.mainframe)
         for r in range(8):
             for c in range(8):
                 s = 'Tan.TLabel' if ((r * 7) + c) % 2 == 0 else 'Green.TLabel'
