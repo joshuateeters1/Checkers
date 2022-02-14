@@ -11,4 +11,4 @@ print(os.getcwd())
 #print the board
 board.printBoard()
 
-#visual.updateVisual(board)
+visual.updateVisual(board)

@@ -4,15 +4,13 @@ from PIL import Image, ImageTk
 
 
 class Visual:
-    mainframe = None
-    b_piece = r_piece = b_king = r_king = None
 
     def __init__(self):
         root = Tk()
         root.title("Checkers")
 
-        mainframe = ttk.Frame(root, padding="3 3 12 12")
-        mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+        self.mainframe = ttk.Frame(root, padding="3 3 12 12")
+        self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         root.columnconfigure(0, weight=1)
         root.rowconfigure(0, weight=1)
 
@@ -24,10 +22,10 @@ class Visual:
         r_piece_file = Image.open('checkers_pieces/r_piece.png')
         b_king_file = Image.open('checkers_pieces/b_king.png')
         r_king_file = Image.open('checkers_pieces/r_king.png')
-        b_piece = ImageTk.PhotoImage(b_piece_file.resize((100,100),Image.ANTIALIAS))
-        r_piece = ImageTk.PhotoImage(r_piece_file.resize((100,100),Image.ANTIALIAS))
-        b_king = ImageTk.PhotoImage(b_king_file.resize((100,100),Image.ANTIALIAS))
-        r_king = ImageTk.PhotoImage(r_king_file.resize((100,100),Image.ANTIALIAS))
+        self.b_piece = ImageTk.PhotoImage(b_piece_file.resize((100,100),Image.ANTIALIAS))
+        self.r_piece = ImageTk.PhotoImage(r_piece_file.resize((100,100),Image.ANTIALIAS))
+        self.b_king = ImageTk.PhotoImage(b_king_file.resize((100,100),Image.ANTIALIAS))
+        self.r_king = ImageTk.PhotoImage(r_king_file.resize((100,100),Image.ANTIALIAS))
 
         root.mainloop()
 
